@@ -17,6 +17,7 @@ public class AddressBookService {
 	            connection = DriverManager.getConnection(jdbcURL, userName, password);
 	            System.out.println("Connection done!!");
 	            Statement statement = connection.createStatement();
+	            statement.execute("UPDATE  address_book SET contactType ='Family' WHERE firstName='Shruti'");
 	            ResultSet resultSet = statement.executeQuery("SELECT * FROM address_book");
 	            while (resultSet.next()) {
 	                System.out.println(resultSet.getString("firstName") + " | " + resultSet.getString("lastName") + " | " + resultSet.getString("address") + " | " + resultSet.getString("city") + " | " + resultSet.getString("state") + " | " + resultSet.getInt("zip") + " | " + resultSet.getInt("phone_Number") + " | " + resultSet.getString("email_id") + " | " + resultSet.getString("bookName") + " | " + resultSet.getString("contactType"));
